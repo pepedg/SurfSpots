@@ -37,6 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Rest Framework
+    'rest_framework',
+    'rest_framework_mongoengine',
+    
+    # Mongoengine
+    'django_mongoengine',
+    'django_mongoengine.mongo_auth',
+    'django_mongoengine.mongo_admin',
+    
+    # Drf.yasg
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -73,10 +85,16 @@ WSGI_APPLICATION = 'SurfSpotsApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+# MongoDB Databases
+MONGODB_DATABASES = {
+    'default': {'name': 'surfSpot'}
+}
+
+DATABASES = { # Set Djongo as Database
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'surfSpot',
+        'ENFORCE_SCHEMA': False
     }
 }
 
